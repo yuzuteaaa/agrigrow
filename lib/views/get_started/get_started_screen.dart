@@ -1,4 +1,5 @@
 import 'package:capstone/constants/colors.dart';
+import 'package:capstone/views/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,7 +14,7 @@ class GetStartedScreen extends StatelessWidget {
           Container(
             width: double.infinity,
             height: double.infinity,
-            color: Colors.white,
+            color: Colors.black,
           ),
           Positioned(
             right: 0,
@@ -68,7 +69,13 @@ class GetStartedScreen extends StatelessWidget {
                                   backgroundColor: AppColors.green900,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(16))),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginScreen()),
+                                    (route) => false);
+                              },
                               child: Text(
                                 "Get Started",
                                 style: GoogleFonts.sora(
