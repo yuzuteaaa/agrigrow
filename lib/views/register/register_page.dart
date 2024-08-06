@@ -1,18 +1,17 @@
 import 'package:capstone/constants/colors.dart';
-import 'package:capstone/views/home/home_page.dart';
-import 'package:capstone/views/register/register_page.dart';
+import 'package:capstone/views/login/login_screen.dart';
 import 'package:capstone/views/shared/widgets/customTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterPage> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<RegisterPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -87,6 +86,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                     'assets/images/backgrounds/login/lock.png',
                               ),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 20, right: 24, left: 24, bottom: 0),
+                              child: CustomTextField(
+                                hintText: 'Confirm Password',
+                                controller: _passwordController,
+                                obscureText: true,
+                                leadingIconPath:
+                                    'assets/images/backgrounds/login/lock.png',
+                              ),
+                            ),
                             SizedBox(
                               height: 20,
                             ),
@@ -103,45 +113,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                     Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => HomePage()),
-                                        (route) => false);
-                                  },
-                                  child: Text(
-                                    "Sign In",
-                                    style: GoogleFonts.sora(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white),
-                                  )),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            SizedBox(
-                              width: 325,
-                              height: 48,
-                              child: ElevatedButton(
-                                  style: OutlinedButton.styleFrom(
-                                      backgroundColor: AppColors.green100,
-                                      side: BorderSide(
-                                          color: AppColors.green900, width: 2),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(16))),
-                                  onPressed: () {
-                                    Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(
                                             builder: (context) =>
                                                 LoginScreen()),
                                         (route) => false);
                                   },
                                   child: Text(
-                                    "Sign In with Google",
+                                    "Register",
                                     style: GoogleFonts.sora(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w600,
-                                        color: Colors.black),
+                                        color: Colors.white),
                                   )),
                             ),
                             SizedBox(
@@ -169,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 RegisterPage()));
                                   },
                                   child: Text(
-                                    'daftar',
+                                    'masuk',
                                     style: GoogleFonts.dmSans(
                                         fontWeight: FontWeight.normal,
                                         fontSize: 12,
@@ -180,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   width: 2,
                                 ),
                                 Text(
-                                  'sekarang jika belum memiliki akun',
+                                  'sekarang jika sudah memiliki aku',
                                   style: GoogleFonts.dmSans(
                                       fontWeight: FontWeight.normal,
                                       fontSize: 12,
