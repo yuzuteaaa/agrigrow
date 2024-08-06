@@ -1,3 +1,4 @@
+import 'package:capstone/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,6 +8,8 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      elevation: 10,
+      backgroundColor: AppColors.green100,
       currentIndex: _getCurrentIndex(),
       onTap: (index) {
         switch (index) {
@@ -23,16 +26,28 @@ class BottomNavBar extends StatelessWidget {
       },
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+          icon: SizedBox(
+            width: 24,
+            height: 24,
+            child: Image.asset('assets/images/navbar/home.png'),
+          ),
+          label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.wb_sunny),
-          label: 'Weather',
+          icon: SizedBox(
+            width: 24,
+            height: 24,
+            child: Image.asset('assets/images/navbar/weather.png'),
+          ),
+          label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.info),
-          label: 'About Us',
+          icon: SizedBox(
+            width: 24,
+            height: 24,
+            child: Image.asset('assets/images/navbar/about.png'),
+          ),
+          label: '',
         ),
       ],
     );
