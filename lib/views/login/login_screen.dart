@@ -2,6 +2,7 @@ import 'package:capstone/constants/colors.dart';
 import 'package:capstone/views/home/home_page.dart';
 import 'package:capstone/views/register/register_page.dart';
 import 'package:capstone/views/shared/widgets/customTextField.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -100,11 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           borderRadius:
                                               BorderRadius.circular(16))),
                                   onPressed: () {
-                                    Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => HomePage()),
-                                        (route) => false);
+                                    login();
                                   },
                                   child: Text(
                                     "Sign In",
@@ -210,5 +207,25 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       ),
     );
+  }
+
+  Future<void> login() async {
+    final auth = FirebaseAuth.instance;
+    try {
+      await auth.signInWithEmailAndPassword(
+        email: _usernameController.text,
+        password: _passwordController.text,
+      );
+
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+        (route) => false,
+      );
+      // Get.offAllNamed(AppRoutesNamed.buttomNavBar);
+    } catch (e) {
+      // Handle error
+      print("Login error: $e");
+    }
   }
 }

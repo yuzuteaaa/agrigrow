@@ -1,6 +1,7 @@
 import 'package:capstone/constants/colors.dart';
 import 'package:capstone/views/login/login_screen.dart';
 import 'package:capstone/views/shared/widgets/customTextField.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -110,12 +111,7 @@ class _LoginScreenState extends State<RegisterPage> {
                                           borderRadius:
                                               BorderRadius.circular(16))),
                                   onPressed: () {
-                                    Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                LoginScreen()),
-                                        (route) => false);
+                                    createUser();
                                   },
                                   child: Text(
                                     "Register",
@@ -191,5 +187,22 @@ class _LoginScreenState extends State<RegisterPage> {
         ],
       ),
     );
+  }
+
+  Future<void> createUser() async {
+    final auth = FirebaseAuth.instance;
+    try {
+      await auth.createUserWithEmailAndPassword(
+          email: _usernameController.text, password: _passwordController.text);
+
+      Navigator.pop(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+      );
+      // Get.toNamed(AppRoutesNamed.loginPage);
+    } catch (e) {
+      // Handle error
+      print("Login error: $e");
+    }
   }
 }
