@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "392857154668",
+    "project_id": "final-project-sanbercode-b3796",
+    "storage_bucket": "final-project-sanbercode-b3796.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392857154668:android:a1e1f7c23107f692661449",
+        "android_client_info": {
+          "package_name": "com.example.capstone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwI0Fn1gc__uAfvBdUqYoyW5ivDaiMEkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

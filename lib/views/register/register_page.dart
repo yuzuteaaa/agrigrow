@@ -147,7 +147,7 @@ class _LoginScreenState extends State<RegisterPage> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                RegisterPage()));
+                                                LoginScreen()));
                                   },
                                   child: Text(
                                     'masuk',
