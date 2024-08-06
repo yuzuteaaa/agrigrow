@@ -66,6 +66,11 @@ flutter:
     - assets/
     - assets/images/backgrounds/get_started/
     - assets/images/backgrounds/login/
+    - assets/images/avatar/
+    - assets/images/icons/
+    - assets/images/agrikultur/
+    - assets/images/news/
+    - assets/images/weather/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
