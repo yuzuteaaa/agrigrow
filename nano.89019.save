@@ -1,0 +1,5 @@
+
+feat: Implement temperature-based plant recommendations: 
+- Added plant recommendation logic to WeatherController 
+- Updated WeatherPage to show recommendations and images based on temperature 
+- Fixed asset loading issues and updated asset paths

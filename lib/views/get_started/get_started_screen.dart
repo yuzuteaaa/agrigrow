@@ -1,6 +1,7 @@
 import 'package:capstone/constants/colors.dart';
-import 'package:capstone/views/login/login_screen.dart';
+import 'package:capstone/routes/app_routes_named.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GetStartedScreen extends StatelessWidget {
@@ -70,11 +71,7 @@ class GetStartedScreen extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(16))),
                             onPressed: () {
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => LoginScreen()),
-                                  (route) => false);
+                              Get.toNamed(AppRoutesNamed.pageLogin);
                             },
                             child: Text(
                               "Get Started",
