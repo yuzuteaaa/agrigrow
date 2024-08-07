@@ -63,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                                   top: 43, right: 24, left: 24, bottom: 0),
                               child: CustomTextField(
                                 hintText: 'Email',
-                                controller: controller.usernameController,
+                                controller: controller.emailController,
                                 leadingIconPath:
                                     'assets/images/backgrounds/login/mail.png',
                               ),

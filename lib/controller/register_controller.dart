@@ -19,11 +19,28 @@ class RegisterController extends GetxController {
         );
         Get.back(); // Go back to the previous screen (LoginScreen)
       } else {
-        // Handle password mismatch
-        print("Passwords do not match.");
+        // Show password mismatch notification
+        Get.snackbar(
+          'Registration Error',
+          'Passwords do not match.',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          borderRadius: 8,
+          margin: EdgeInsets.all(16),
+        );
       }
     } catch (e) {
-      // Handle error
+      // Show registration error notification
+      Get.snackbar(
+        'Registration Error',
+        'Failed to register. Please try again.',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+        borderRadius: 8,
+        margin: EdgeInsets.all(16),
+      );
       print("Registration error: $e");
     }
   }
