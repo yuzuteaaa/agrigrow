@@ -8,8 +8,10 @@ import '../views/register/register_page.dart';
 class LoginController extends GetxController {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  var isLoading = false.obs; // Observable boolean for loading state
 
   Future<void> login() async {
+    isLoading.value = true; // Set loading to true
     final auth = FirebaseAuth.instance;
     try {
       await auth.signInWithEmailAndPassword(
@@ -18,7 +20,6 @@ class LoginController extends GetxController {
       );
       Get.offAll(() => HomePage());
     } catch (e) {
-      // Show error notification
       Get.snackbar(
         'Login Error',
         'Failed to login. Please check your credentials.',
@@ -29,6 +30,9 @@ class LoginController extends GetxController {
         margin: EdgeInsets.all(16),
       );
       print("Login error: $e");
+    } finally {
+      isLoading.value =
+          false; // Set loading to false regardless of success or failure
     }
   }
 

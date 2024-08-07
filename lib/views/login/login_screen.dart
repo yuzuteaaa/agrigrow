@@ -7,8 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../controller/login_controller.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     final LoginController controller = Get.put(LoginController());
@@ -117,7 +115,12 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                 ),
                                 onPressed: () {
-                                  // Google Sign-In logic goes here
+                                  Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginScreen()),
+                                    (route) => false,
+                                  );
                                 },
                                 child: Text(
                                   "Sign In with Google",
@@ -184,6 +187,15 @@ class LoginScreen extends StatelessWidget {
               ],
             ),
           ),
+          Obx(() {
+            return controller.isLoading.value
+                ? Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.green900,
+                    ),
+                  )
+                : SizedBox.shrink();
+          }),
         ],
       ),
     );
