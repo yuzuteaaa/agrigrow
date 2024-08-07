@@ -1,17 +1,15 @@
+import 'package:capstone/controller/weather_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../constants/colors.dart';
 import '../shared/widgets/buttom_nav_bar.dart';
 
-class WeatherPage extends StatefulWidget {
-  const WeatherPage({super.key});
+class WeatherPage extends StatelessWidget {
+  final WeatherController weatherController = Get.put(WeatherController());
 
-  @override
-  State<WeatherPage> createState() => _WeatherPageState();
-}
-
-class _WeatherPageState extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,52 +42,75 @@ class _WeatherPageState extends State<WeatherPage> {
                             Padding(
                               padding: EdgeInsets.only(
                                   top: 26, bottom: 21, right: 32.5, left: 32.5),
-                              child: Row(
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                              child: Obx(() {
+                                final weather = weatherController.weather.value;
+
+                                if (weather != null) {
+                                  return Row(
                                     children: [
-                                      Text(
-                                        '20°',
-                                        style: GoogleFonts.sora(
-                                            fontSize: 30,
-                                            fontWeight: FontWeight.normal,
-                                            color: Colors.white),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          // Display dynamic current temperature
+                                          Text(
+                                            '${weather.temperature}°', // Rounded to 1 decimal
+                                            style: GoogleFonts.sora(
+                                                fontSize: 30,
+                                                fontWeight: FontWeight.normal,
+                                                color: Colors.white),
+                                          ),
+                                          // Display high and low temperatures
+                                          Text(
+                                            'H:${weather.highTemperature}°  L:${weather.lowTemperature}°',
+                                            style: GoogleFonts.sora(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.normal,
+                                                color: Colors.white),
+                                          ),
+                                          // Display city name
+                                          Text(
+                                            weather.cityName,
+                                            style: GoogleFonts.sora(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.normal,
+                                                color: Colors.white),
+                                          ),
+                                        ],
                                       ),
-                                      Text(
-                                        'H:88°  L:18°',
-                                        style: GoogleFonts.sora(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.normal,
-                                            color: Colors.white),
+                                      SizedBox(
+                                        width: 70,
                                       ),
-                                      Text(
-                                        'Asgard, Indonesia',
-                                        style: GoogleFonts.sora(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.normal,
-                                            color: Colors.white),
-                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            width: 69,
+                                            height: 54,
+                                            // Display the weather animation based on the main condition
+                                            child: Lottie.asset(
+                                                weatherController
+                                                    .getWeatherAnimation(
+                                                        weather.mainCondition)),
+                                          ),
+                                        ],
+                                      )
                                     ],
-                                  ),
-                                  SizedBox(
-                                    width: 70,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        width: 69,
-                                        height: 54,
-                                        child: Image.asset(
-                                            'assets/images/icons/midrain.png'),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
+                                  );
+                                } else if (weatherController
+                                    .errorMessage.value.isNotEmpty) {
+                                  return Text(
+                                    weatherController.errorMessage.value,
+                                    style: GoogleFonts.sora(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.normal,
+                                        color: Colors.red),
+                                  );
+                                } else {
+                                  return const CircularProgressIndicator(); // Loading state
+                                }
+                              }),
                             ),
                             SizedBox(
                               height: 32,

@@ -39,6 +39,10 @@ dependencies:
   firebase_core: ^2.24.2
   firebase_auth: ^4.16.0
   get: ^4.6.6
+  http: ^1.2.2
+  geolocator: ^11.1.0
+  geocoding: ^3.0.0
+  lottie: ^3.1.2
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +77,7 @@ flutter:
     - assets/images/news/
     - assets/images/weather/
     - assets/images/navbar/
+    - assets/json/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
