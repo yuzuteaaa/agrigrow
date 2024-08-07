@@ -65,7 +65,28 @@ class WeatherPageController extends GetxController {
   }
 
   // This method gets the weather animation based on the main condition
-  String getWeatherAnimation(String condition) {
-    return 'assets/json/$condition.json';
+  String getWeatherAnimation(String? mainCondition) {
+    if (mainCondition == null)
+      return 'assets/json/sunny.json'; // default to sunny
+
+    switch (mainCondition.toLowerCase()) {
+      case 'clouds':
+      case 'mist':
+      case 'smoke':
+      case 'haze':
+      case 'dust':
+      case 'fog':
+        return 'assets/json/clouds.json';
+      case 'rain':
+      case 'drizzle':
+      case 'shower rain':
+        return 'assets/json/rain.json';
+      case 'thunderstorm':
+        return 'assets/json/thunder.json';
+      case 'clear':
+        return 'assets/json/sunny.json';
+      default:
+        return 'assets/json/sunny.json';
+    }
   }
 }
