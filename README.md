@@ -1,56 +1,93 @@
-# Infinity Stone - Time Stone Edition
+# AgriGrow
 
-![App Logo](assets/time-stone.jpg)
+![](assets/time-stone.jpg)
 
-## Overview
+## Gambaran Umum
 
-Welcome to **Infinity Stone - Time Stone Edition**! This Flutter application harnesses the power of the Time Stone to detect diseases in tomato leaves. By leveraging advanced image recognition and machine learning techniques, this app helps farmers and gardeners identify potential diseases in their tomato crops early, ensuring timely and effective treatment.
+Selamat datang di **AgriGrow**, aplikasi yang dirancang khusus untuk membantu Anda dalam memilih dan merawat tanaman berdasarkan kondisi cuaca terkini. Dengan menggunakan data dari API OpenWeather, AgriGrow menyediakan rekomendasi berbasis suhu udara saat ini yang dapat mendukung pertumbuhan tanaman Anda secara optimal.
 
-## Features
+## Fitur
 
-- **Disease Detection:** Quickly and accurately detect diseases in tomato leaves using your smartphone's camera.
-- **Time Travel Insights:** Visualize the progression of detected diseases over time, helping you understand the severity and spread.
-- **Knowledge Base:** Access detailed information about various tomato leaf diseases, their symptoms, and treatment options.
-- **Real-time Notifications:** Stay updated with instant alerts and recommendations for managing detected diseases.
+- **Deteksi Cuaca:** Dapatkan informasi cuaca real-time untuk menyesuaikan perawatan tanaman Anda.
+- **Rekomendasi Pertanian:** Berikan saran tentang jenis tanaman yang ideal berdasarkan suhu udara saat ini.
+- **Basis Pengetahuan:** Akses informasi mendetail tentang berbagai jenis tanaman dan tips perawatannya.
+- **Notifikasi Waktu Nyata:** Tetap terupdate dengan peringatan dan rekomendasi terbaru untuk pengelolaan tanaman Anda.
 
-## Getting Started
+## Memulai
 
-### Prerequisites
+### Prasyarat
 
-- Flutter SDK
-- Android Studio or Visual Studio Code
-- A device or emulator to run the app
+- SDK Flutter
+- Android Studio atau Visual Studio Code
+- Perangkat atau emulator untuk menjalankan aplikasi
 
-### Installation
+### Instalasi
 
-1. **Clone the repository:**
-
+1. **Kloning repositori:**
    ```bash
-   git clone https://github.com/muhith7/infinity-stones.git
-   cd infinity-stone-time-stone
+   git clone https://github.com/username/agrigrow.git
+   cd agrigrow
+   ```
 
-1. **install dependencies:**
+2. **Instal dependensi:**
+    ```bash
+    flutter pub get
+    ```
+3. **Jalankan aplikasi:**
+    ```bash
+    flutter run
+    ```
 
-   ```bash
-   flutter pub get
+### Penggunaan
 
-1. **Run the app:**
+1. Buka aplikasi dan berikan izin yang diperlukan untuk akses lokasi dan data        cuaca.
+2. Lihat rekomendasi tanaman yang disesuaikan berdasarkan data suhu dari            OpenWeather API.
+3. Telusuri berbagai tips dan trik untuk merawat tanaman berdasarkan kondisi     cuaca terkini.
 
-   ```bash
-   flutter run
+### Dependencies
 
+1. **cupertino_icons**
+   - Versi: `^1.0.6`
+   - Dokumentasi: [Cupertino Icons package](https://pub.dev/packages/cupertino_icons)
 
-## Usage
-1. Open the app and grant necessary permissions for camera access.
-2. Capture an image of the tomato leaf you want to analyze.
-3. Let the app process the image and display the detected disease along with detailed information.
-4. Explore the time travel insights to see how the disease might progress if left untreated.
-## Screenshots
+2. **google_fonts**
+   - Versi: `^6.2.1`
+   - Dokumentasi: [Google Fonts package](https://pub.dev/packages/google_fonts)
 
+3. **firebase_core**
+   - Versi: `^2.24.2`
+   - Dokumentasi: [Firebase Core for Flutter](https://pub.dev/packages/firebase_core)
 
+4. **firebase_auth**
+   - Versi: `^4.16.0`
+   - Dokumentasi: [Firebase Auth package](https://pub.dev/packages/firebase_auth)
 
+5. **get**
+   - Versi: `^4.6.6`
+   - Dokumentasi: [Get package for state and route management](https://pub.dev/packages/get)
 
+6. **http**
+   - Versi: `^1.2.2`
+   - Dokumentasi: [HTTP package](https://pub.dev/packages/http)
 
-## Acknowledgements
-Thanks to the Flutter community for their fantastic resources and support.
-Special thanks to the creators of the machine learning models used in this app.
+7. **geolocator**
+   - Versi: `^11.1.0`
+   - Dokumentasi: [Geolocator package](https://pub.dev/packages/geolocator)
+
+8. **geocoding**
+   - Versi: `^3.0.0`
+   - Dokumentasi: [Geocoding package](https://pub.dev/packages/geocoding)
+
+9. **lottie**
+   - Versi: `^3.1.2`
+   - Dokumentasi: [Lottie for Flutter](https://pub.dev/packages/lottie)
+
+10. **flutter_launcher_icons**
+   - Versi: `^0.13.1`
+   - Dokumentasi: [Flutter Launcher Icons package](https://pub.dev/packages/flutter_launcher_icons)
+
+### Penghargaan
+
+Terima kasih kepada komunitas Flutter atas dukungan dan sumber daya yang luar biasa.
+Terima kasih khusus kepada OpenWeather API yang telah menjadi sumber data penting dalam aplikasi ini.
+
