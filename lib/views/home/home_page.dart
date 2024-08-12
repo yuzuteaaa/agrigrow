@@ -1,4 +1,5 @@
 import 'package:capstone/constants/colors.dart';
+import 'package:capstone/controller/login_controller.dart';
 import 'package:capstone/controller/weather_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,6 +10,7 @@ import '../shared/widgets/buttom_nav_bar.dart';
 
 class HomePage extends StatelessWidget {
   final WeatherController weatherController = Get.put(WeatherController());
+  final LoginController controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -65,12 +67,17 @@ class HomePage extends StatelessWidget {
                           SizedBox(
                             width: 165,
                           ),
-                          Container(
-                              alignment: Alignment.center,
-                              width: 20,
-                              height: 20,
-                              child:
-                                  Image.asset('assets/images/icons/bell.png'))
+                          InkWell(
+                            onTap: () {
+                              controller.logout();
+                            },
+                            child: Container(
+                                alignment: Alignment.center,
+                                width: 20,
+                                height: 20,
+                                child: Image.asset(
+                                    'assets/images/icons/bell.png')),
+                          )
                         ],
                       ),
                       SizedBox(

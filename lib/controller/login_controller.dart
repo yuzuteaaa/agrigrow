@@ -1,3 +1,4 @@
+import 'package:capstone/routes/app_routes_named.dart';
 import 'package:capstone/views/home/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -38,5 +39,24 @@ class LoginController extends GetxController {
 
   void navigateToRegister() {
     Get.to(() => RegisterPage());
+  }
+
+  Future<void> logout() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      Get.offAllNamed(
+          AppRoutesNamed.pageLogin); // Navigate back to the login page
+    } catch (e) {
+      Get.snackbar(
+        'Logout Error',
+        'Failed to logout. Please try again.',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+        borderRadius: 8,
+        margin: EdgeInsets.all(16),
+      );
+      print("Logout error: $e");
+    }
   }
 }

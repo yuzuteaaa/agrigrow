@@ -4,11 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../constants/colors.dart';
+import '../../controller/login_controller.dart';
 import '../../controller/weather_controller.dart';
 import '../shared/widgets/buttom_nav_bar.dart';
 
 class AboutUs extends StatelessWidget {
   final WeatherController weatherController = Get.put(WeatherController());
+  final LoginController controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
