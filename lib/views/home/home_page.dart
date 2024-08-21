@@ -67,17 +67,12 @@ class HomePage extends StatelessWidget {
                           SizedBox(
                             width: 165,
                           ),
-                          InkWell(
-                            onTap: () {
-                              controller.logout();
-                            },
-                            child: Container(
-                                alignment: Alignment.center,
-                                width: 20,
-                                height: 20,
-                                child: Image.asset(
-                                    'assets/images/icons/bell.png')),
-                          )
+                          Container(
+                              alignment: Alignment.center,
+                              width: 20,
+                              height: 20,
+                              child:
+                                  Image.asset('assets/images/icons/bell.png'))
                         ],
                       ),
                       SizedBox(

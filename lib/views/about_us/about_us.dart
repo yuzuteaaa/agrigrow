@@ -33,7 +33,7 @@ class AboutUs extends StatelessWidget {
                     children: [
                       Container(
                         width: 318,
-                        height: 680,
+                        height: 750,
                         decoration: BoxDecoration(
                           color: AppColors.green900,
                           borderRadius: BorderRadius.circular(
@@ -172,6 +172,42 @@ class AboutUs extends StatelessWidget {
                                       textAlign: TextAlign.left,
                                     ),
                                   ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                controller.logout();
+                              },
+                              child: Container(
+                                height: 60,
+                                width: 299,
+                                decoration: BoxDecoration(
+                                    color: AppColors.green100,
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 12,
+                                      bottom: 12,
+                                      right: 10.5,
+                                      left: 10.5),
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "Log Out",
+                                          style: GoogleFonts.sora(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 14,
+                                              color: Colors.black),
+                                        )
+                                      ]),
                                 ),
                               ),
                             ),
