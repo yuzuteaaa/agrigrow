@@ -180,7 +180,8 @@ class AboutUs extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                controller.logout();
+                                controller
+                                    .showLogoutConfirmationDialog(context);
                               },
                               child: Container(
                                 height: 60,

@@ -59,4 +59,31 @@ class LoginController extends GetxController {
       print("Logout error: $e");
     }
   }
+
+  void showLogoutConfirmationDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Confirm Logout'),
+          content: Text('Are you sure you want to log out?'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text('Log Out'),
+              onPressed: () async {
+                Navigator.of(context).pop();
+                await logout();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
