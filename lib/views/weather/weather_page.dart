@@ -17,7 +17,7 @@ class WeatherPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
                     'assets/images/backgrounds/login/onboarding.png'),
@@ -42,7 +42,7 @@ class WeatherPage extends StatelessWidget {
                       child: Column(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(
+                            padding: const EdgeInsets.only(
                                 top: 26, bottom: 21, right: 32.5, left: 32.5),
                             child: Obx(() {
                               final weather = weatherController.weather.value;
@@ -80,14 +80,14 @@ class WeatherPage extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 70,
                                     ),
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Container(
+                                        SizedBox(
                                           width: 69,
                                           height: 54,
                                           // Display the weather animation based on the main condition
@@ -114,7 +114,7 @@ class WeatherPage extends StatelessWidget {
                               }
                             }),
                           ),
-                          SizedBox(height: 32),
+                          const SizedBox(height: 32),
                           Container(
                             height: 240,
                             width: 299,
@@ -126,16 +126,16 @@ class WeatherPage extends StatelessWidget {
                               final imagePath =
                                   weatherController.getImagePath();
                               return imagePath.isNotEmpty
-                                  ? Container(
+                                  ? SizedBox(
                                       height: 205,
                                       width: 278,
                                       child: Image.asset(imagePath),
                                     )
-                                  : Center(
+                                  : const Center(
                                       child: Text('No suitable plant image'));
                             }),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           Container(
                             height: 240,
                             width: 299,
@@ -171,13 +171,13 @@ class WeatherPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '$plantType :',
+                                      'Jenis Tanaman $plantType',
                                       style: GoogleFonts.sora(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 14,
                                           color: Colors.black),
                                     ),
-                                    SizedBox(height: 10),
+                                    const SizedBox(height: 10),
                                     Row(
                                       children: [
                                         Text(
@@ -196,7 +196,7 @@ class WeatherPage extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    SizedBox(height: 10),
+                                    const SizedBox(height: 10),
                                     Text(
                                       'Rekomendasi :',
                                       style: GoogleFonts.sora(
@@ -204,7 +204,7 @@ class WeatherPage extends StatelessWidget {
                                           fontSize: 14,
                                           color: Colors.black),
                                     ),
-                                    SizedBox(height: 10),
+                                    const SizedBox(height: 10),
                                     Text(
                                       desc,
                                       style: GoogleFonts.sora(

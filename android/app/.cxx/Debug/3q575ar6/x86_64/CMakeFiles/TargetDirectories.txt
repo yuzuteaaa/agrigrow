@@ -1,0 +1,2 @@
+/home/yuzuru/Project/agrigrow/android/app/.cxx/Debug/3q575ar6/x86_64/CMakeFiles/rebuild_cache.dir
+/home/yuzuru/Project/agrigrow/android/app/.cxx/Debug/3q575ar6/x86_64/CMakeFiles/edit_cache.dir
